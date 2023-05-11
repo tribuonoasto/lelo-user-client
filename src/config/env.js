@@ -1,10 +1,10 @@
 const envConfig = {
   dev: {
     // dev
-    apiPrefix: 'http://localhost:3000'
+    apiPrefix: 'http://194.233.92.65:3000'
   },
   prod: {
-    apiPrefix: 'http://localhost:3000'
+    apiPrefix: 'http://194.233.92.65:3000'
 
   }
 };
