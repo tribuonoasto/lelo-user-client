@@ -3,6 +3,8 @@ import hooks from './hooks';
 
 //Views
 import HomeView from './routes/home';
+import LoginView from './routes/login'
+import RegisterView from './routes/register'
 
 
 const router = createRouter({
@@ -18,7 +20,9 @@ const router = createRouter({
     };
   },
   routes: [
-    ...HomeView
+    ...HomeView,
+    ...LoginView,
+    ...RegisterView
   ]
 })
 
