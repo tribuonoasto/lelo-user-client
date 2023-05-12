@@ -23,10 +23,10 @@ pipeline {
         stage ('Deploy') {
             steps {
                 dir(buildDestination) {
-                    sh 'rm -rf dist/'
+                    sh 'sudo rm -rf dist/'
                 }
                 dir(workDirectory + '/' + env.JOB_BASE_NAME) {
-                    sh 'cp -r dist ${buildDestination}'
+                    sh 'sudo cp -r dist ${buildDestination}'
                 }
                 sh 'sudo nginx -t'
                 sh 'sudo systemctl restart nginx'
