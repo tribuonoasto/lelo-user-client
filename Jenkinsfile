@@ -23,7 +23,7 @@ pipeline {
         stage ('Deploy') {
             steps {
                 dir(buildDestination) {
-                    sh 'sudo rm -rf dist/'
+                    sh 'sudo rm -rf dist'
                 }
                 dir(workDirectory + '/' + env.JOB_BASE_NAME) {
                     sh 'sudo cp -r dist ${buildDestination}'
