@@ -2,10 +2,10 @@ import { ElMessage } from 'element-plus'
 
 
 function errorHandler(data) {
-  const { msg } = data;
+  const { message } = data;
 
   ElMessage.error({
-    message: msg || 'Permintaan gagal, coba lagi nanti',
+    message: message || 'Permintaan gagal, coba lagi nanti',
     duration: 3000
   });
 
@@ -27,13 +27,13 @@ export default (instance) => {
     // Do something with response error
     const data = {
       error,
-      msg: ''
+      message: ''
     };
 
     if (error.response) {
-      data.msg = error.response.data && error.response.data.msg;
+      data.message = error.response.data.message;
     } else {
-      data.msg = error.message;
+      data.message = error.message;
     }
 
     errorHandler(data);

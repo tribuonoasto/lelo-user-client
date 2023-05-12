@@ -8,7 +8,6 @@ export default (instance) => {
     }
     return instance;
   }, (error) => {
-    console.log(error);
     return Promise.reject(error);
   });
 
@@ -17,7 +16,7 @@ export default (instance) => {
     hideLoading();
     return response;
   }, (error) => {
-    console.log(error)
+    hideLoading();
     return Promise.reject(error);
   });
 };
