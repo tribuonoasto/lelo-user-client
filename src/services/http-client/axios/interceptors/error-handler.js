@@ -5,7 +5,7 @@ function errorHandler(data) {
   const { msg } = data;
 
   ElMessage.error({
-    message: msg || 'Permintaan gagal, coba lagi nanti', // 请求出错, 请稍后重试
+    message: msg || 'Permintaan gagal, coba lagi nanti',
     duration: 3000
   });
 
