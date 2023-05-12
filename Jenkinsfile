@@ -23,6 +23,7 @@ pipeline {
         stage ('Deploy') {
             steps {
                 dir(buildDestination) {
+                    sh 'pwd'
                     sh 'sudo rm -rf dist'
                 }
                 dir(workDirectory + '/' + env.JOB_BASE_NAME) {
