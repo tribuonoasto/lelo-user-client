@@ -10,6 +10,6 @@ const envConfig = {
 };
 
 const curEnvConfig = envConfig[import.meta.env.VITE_APP_ENV];
-console.log(curEnvConfig)
+console.log(curEnvConfig, import.meta.env.VITE_APP_ENV)
 
 export default curEnvConfig;
