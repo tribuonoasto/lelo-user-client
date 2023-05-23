@@ -16,8 +16,13 @@ export const useUserStore = defineStore("user", () => {
   }
   // Register
   async function register(data) {
-    const res = await api.user.register(data);
-    console.log(res);
+    try {
+      console.log(data);
+      const res = await api.user.register(data)
+      console.log(res)
+    } catch (error) {
+      console.log(error.response.data.message)
+    }
   }
   return { user, login, register };
 });
