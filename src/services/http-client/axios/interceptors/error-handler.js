@@ -31,9 +31,9 @@ export default (instance) => {
     };
 
     if (error.response) {
-      data.message = error.response.data.message;
+      data.message = error.response.data.message.split(":")[0]
     } else {
-      data.message = error.message;
+      data.message = error.message.split(":")[0]
     }
 
     errorHandler(data);
