@@ -3,30 +3,22 @@
     <el-card class="box-card">
       <div class="loginText">Login</div>
       <el-form :model="form" class="form">
-        <el-form-item
-          prop="email"
-          :rules="[
-            {
-              required: true,
-              message: 'Please input email address',
-              trigger: 'blur',
-            },
-            {
-              type: 'email',
-              message: 'Please input correct email address',
-              trigger: ['blur', 'change'],
-            },
-          ]"
-        >
+        <el-form-item prop="email" :rules="[
+          {
+            required: true,
+            message: 'Please input email address',
+            trigger: 'blur',
+          },
+          {
+            type: 'email',
+            message: 'Please input correct email address',
+            trigger: ['blur', 'change'],
+          },
+        ]">
           <el-input v-model="form.email" placeholder="Email" />
         </el-form-item>
         <el-form-item label="">
-          <el-input
-            v-model="form.pass"
-            type="password"
-            autocomplete="off"
-            placeholder="Password"
-          />
+          <el-input v-model="form.pass" type="password" autocomplete="off" placeholder="Password" />
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="onSubmit">Login</el-button>
@@ -44,19 +36,22 @@ import { useUserStore } from "../stores/user";
 //Store
 const userStore = useUserStore();
 
-// do not use same name with ref
-const form = reactive({
+const defaultForm = () =>
+({
   email: "",
   pass: "",
-});
+}
+)
+
+const form = reactive(defaultForm());
+
 
 const onSubmit = () => {
   userStore.login(form);
 };
 
 function cancel() {
-  form.email = ""
-  form.pass = ""
+  Object.assign(form, defaultForm())
 }
 </script>
 

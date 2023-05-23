@@ -4,44 +4,27 @@
       <div class="loginText">Register</div>
       <el-form :model="form" class="form">
         <el-form-item label="">
-          <el-input
-            v-model="form.fullname"
-            autocomplete="off"
-            placeholder="Full Name"
-          />
+          <el-input v-model="form.fullname" autocomplete="off" placeholder="Full Name" />
         </el-form-item>
-        <el-form-item
-          prop="email"
-          :rules="[
-            {
-              required: true,
-              message: 'Please input email address',
-              trigger: 'blur',
-            },
-            {
-              type: 'email',
-              message: 'Please input correct email address',
-              trigger: ['blur', 'change'],
-            },
-          ]"
-        >
+        <el-form-item prop="email" :rules="[
+          {
+            required: true,
+            message: 'Please input email address',
+            trigger: 'blur',
+          },
+          {
+            type: 'email',
+            message: 'Please input correct email address',
+            trigger: ['blur', 'change'],
+          },
+        ]">
           <el-input v-model="form.email" placeholder="Email" />
         </el-form-item>
         <el-form-item label="">
-          <el-input
-            v-model="form.pass"
-            type="password"
-            autocomplete="off"
-            placeholder="Password"
-          />
+          <el-input v-model="form.pass" type="password" autocomplete="off" placeholder="Password" />
         </el-form-item>
         <el-form-item label="">
-          <el-input
-            v-model="form.checkPass"
-            type="password"
-            autocomplete="off"
-            placeholder="Confirm Password"
-          />
+          <el-input v-model="form.checkPass" type="password" autocomplete="off" placeholder="Confirm Password" />
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="onSubmit">Register</el-button>
@@ -59,23 +42,23 @@ import { useUserStore } from "../stores/user";
 //Store
 const userStore = useUserStore();
 
-// do not use same name with ref
-const form = reactive({
+const defaultForm = () =>
+({
   email: "",
   pass: "",
   fullname: "",
   checkPass: ""
-});
+}
+)
+
+const form = reactive(defaultForm());
 
 const onSubmit = () => {
   userStore.register(form);
 };
 
 function cancel() {
-  form.email = ""
-  form.pass = ""
-  form.fullname = ""
-  form.checkPass = ""
+  Object.assign(form, defaultForm())
 }
 </script>
 
