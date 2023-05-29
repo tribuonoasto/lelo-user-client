@@ -27,6 +27,10 @@ export default {
     if (token) {
       const res = await userStore.checkUser()
       if (!res) {
+        ElMessage.error({
+          message: "You login session expired",
+          duration: 3000
+        });
         localStorage.clear()
         next({ name: 'login' });
       } else {
