@@ -7,5 +7,8 @@ export default {
   },
   register(params, config) {
     return httpClient.post(URL.apiPrefix + "/v1/auth/register", params, config);
+  },
+  checkUser(params, config) {
+    return httpClient.get(URL.apiPrefix + "/v1/user/self", params, config);
   }
 }

@@ -2,6 +2,10 @@
 import Navbar from './components/Navbar.vue';
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { useUserStore } from "./stores/user";
+
+//Store
+const userStore = useUserStore();
 
 const route = useRoute()
 
@@ -14,7 +18,7 @@ const showNavbar = computed(() => {
 </script>
 
 <template>
-  <Navbar v-show="showNavbar"/>
+  <Navbar v-show="showNavbar" />
   <RouterView />
 </template>
 

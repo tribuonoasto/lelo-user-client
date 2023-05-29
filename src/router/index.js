@@ -5,6 +5,7 @@ import hooks from './hooks';
 import HomeView from './routes/home';
 import LoginView from './routes/login'
 import RegisterView from './routes/register'
+import notFound from './routes/not-found';
 
 
 const router = createRouter({
@@ -22,7 +23,8 @@ const router = createRouter({
   routes: [
     ...HomeView,
     ...LoginView,
-    ...RegisterView
+    ...RegisterView,
+    ...notFound
   ]
 })
 

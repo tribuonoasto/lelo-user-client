@@ -3,6 +3,8 @@ import URL from "@/config/env";
 
 export default {
   get(url, params = {}, config = { showLoading: true }, responseType = "json") {
+    const token = localStorage.getItem('access_token')
+    const headers = {Authorization : `Bearer ${token}`}
     return new Promise((resolve, reject) => {
       http({
         method: "get",
@@ -10,6 +12,7 @@ export default {
         params,
         responseType,
         config,
+        headers
       })
         .then((res) => {
           resolve(res.data);
